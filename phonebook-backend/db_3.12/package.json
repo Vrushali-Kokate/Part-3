@@ -1,0 +1,21 @@
+{
+  "name": "step3.9",
+  "version": "1.0.0",
+  "description": "Phonebook App (Full Stack Open - Part 3) 🌐 Deployed Backend https://phonebook-backend-vrushali.onrender.com/api/persons",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "axios": "^1.12.2",
+    "cors": "^2.8.5",
+    "express": "^5.1.0",
+    "mongoose": "^8.19.1",
+    "morgan": "^1.10.1"
+  }
+}

@@ -26,7 +26,7 @@
 
 import axios from 'axios'
 
-const baseUrl = 'https://part-3-q16w.onrender.com/api/persons'
+const baseUrl = 'http://localhost:3001/api/persons'
 
 const getAll = () => axios.get(baseUrl).then(res => res.data)
 
