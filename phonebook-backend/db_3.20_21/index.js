@@ -9,8 +9,6 @@ const Person = require('./models/person');
 // Middleware
 app.use(cors());
 app.use(express.json());
-
-// Morgan token to log POST request body
 morgan.token('body', (req) => {
   return req.method === 'POST' ? JSON.stringify(req.body) : '';
 });
