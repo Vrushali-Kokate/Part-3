@@ -21,4 +21,10 @@ It consists of:
 ---
 
 ## 📁 Project Structure
-
+/phonebook
+├── phonebook-frontend/ # (Optional) React frontend
+├── phonebook-backend/
+│ ├── db_3.18/ # Exercises 3.18+
+│ ├── db_3.20_21/ # Final working backend
+│ └── .env # MongoDB URI and other config
+└── README.md # This file
