@@ -18,7 +18,7 @@ const App = () => {
         setPersons(initialPersons)
       })
       .catch(error => {
-        showNotification('Could not connect to server. Make sure JSON Server is running.', 'error')
+        showNotification('Could not connect to server. Make sure backend is running.', 'error')
       })
   }, [])
 
@@ -53,10 +53,11 @@ const App = () => {
             showNotification(`Updated ${returnedPerson.name}'s number`, 'success')
           })
           .catch(error => {
-            showNotification(
-              `Information of ${existingPerson.name} has already been removed from server`,
-              'error'
-            )
+            if (error.response && error.response.data && error.response.data.error) {
+              showNotification(error.response.data.error, 'error')
+            } else {
+              showNotification(`Information of ${existingPerson.name} has already been removed from server`, 'error')
+            }
             setPersons(persons.filter(p => p.id !== existingPerson.id))
           })
       }
@@ -74,7 +75,11 @@ const App = () => {
         showNotification(`Added ${returnedPerson.name}`, 'success')
       })
       .catch(error => {
-        showNotification('Could not save to server.', 'error')
+        if (error.response && error.response.data && error.response.data.error) {
+          showNotification(error.response.data.error, 'error')  // ✅ Show Mongoose validation error
+        } else {
+          showNotification('Could not save to server.', 'error')
+        }
       })
   }
 
