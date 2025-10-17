@@ -1,5 +1,4 @@
 const mongoose = require('mongoose');
-const { validate } = require('../../db_3.18/models/person');
 require('dotenv').config();
 
 mongoose.set('strictQuery', false);
@@ -28,12 +27,12 @@ const personSchema = new mongoose.Schema({
   },
 });
 
-personSchema.set('toJSON', {
-  transform: (document, returnedObject) => {
-    returnedObject.id = returnedObject._id.toString();
-    delete returnedObject._id;
-    delete returnedObject.__v;
-  }
-});
+// personSchema.set('toJSON', {
+//   transform: (document, returnedObject) => {
+//     returnedObject.id = returnedObject._id.toString();
+//     delete returnedObject._id;
+//     delete returnedObject.__v;
+//   }
+// });
 
 module.exports = mongoose.model('Person', personSchema);
